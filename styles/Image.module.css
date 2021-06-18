@@ -19,17 +19,37 @@
   }
   
   .img .placeholder:not(canvas){
-    transform: scale(1.2);
-    filter: blur(20px);
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    transform: scale(1.11);
+    filter: blur(11px) saturate(1.3) brightness(1.1)
+    /* filter: url(#svg-blur); */
   }
+
   
   .img .mainImage{
-    transition: opacity ease 200ms, transform ease 200ms, filter ease 200ms;
+    opacity: 0;
+    /* filter: blur(5px); */
+    transition: all ease 300ms;
+  }
+
+  .img .mainImage:hover{
+    opacity: 1;
+    filter: none;
   }
   
   .img .mainImage.hidden{
-    opacity: 0;
+    /* opacity: 0;
     transform: scale(1.05);
-    transition: all linear 0ms;
+    transition: all linear 0ms; */
   }
+
+.size{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.315);
+  z-index: 10;
+  padding: 3px;
+}
   

@@ -11,6 +11,7 @@ export default React.forwardRef(({
     // blurhash,
     lazy=true, 
     className,
+    placeholderStyle,
 }, ref) => {
     // const canvasRef = useRef();
     const imageRef = useRef();
@@ -61,8 +62,9 @@ export default React.forwardRef(({
 
     return <>
         <div className={clsx(styles.img, className)}>
+            <div className={styles.size}>{base64.length} B</div>
           {/* <img className={styles.placeholder} alt="" aria-hidden="true" role="presentation"  style={css}/> */}
-          <img className={styles.placeholder} alt="" aria-hidden="true" role="presentation" src={base64}/>
+          <img style={placeholderStyle} className={styles.placeholder} alt="" aria-hidden="true" role="presentation" src={base64}/>
           {/* <canvas ref={canvasRef} className={styles.placeholder} aria-hidden="true" role="presentation"></canvas> */}
           <img ref={setRefs} className={styles.mainImage} decoding="async" alt="" src={data.src} data-src={data.dataSrc} onLoad={handleLoad}/>
         </div>
